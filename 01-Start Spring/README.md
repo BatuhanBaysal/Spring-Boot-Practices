@@ -38,7 +38,7 @@ Eğer bağımlılıkları projeyi oluşturduktan sonra eklemek isterseniz, [Mave
     <artifactId>spring-boot-devtools</artifactId>
     <scope>runtime</scope>
 </dependency>
-
+```
 
 ## 2. YOL: start.spring.io ile Proje Oluşturma
 
