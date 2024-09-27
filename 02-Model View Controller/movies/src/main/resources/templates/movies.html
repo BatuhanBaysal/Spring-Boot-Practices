@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Movies</title>
+        <link rel="stylesheet" href="table-stylesheet.css">
+    </head>
+
+    <body>
+        <h2>IMDB: Top 5 Movies</h2>
+        <table>
+            <tr>
+                <th>Title</th>   
+                <th>Year</th>   
+                <th>Rating</th>    
+            </tr>
+            <tr th:object="${first}">
+                <td th:text="*{title}"></td>
+                <td th:text="*{year}"></td>
+                <td th:text="*{rating}"></td>
+            </tr>
+            <tr th:object="${second}">
+                <td th:text="*{title}"></td>
+                <td th:text="*{year}"></td>
+                <td th:text="*{rating}"></td>
+            </tr>
+            <tr th:object="${third}">
+                <td th:text="*{title}"></td>
+                <td th:text="*{year}"></td>
+                <td th:text="*{rating}"></td>
+            </tr>
+            <tr th:object="${fourth}">
+                <td th:text="*{title}"></td>
+                <td th:text="*{year}"></td>
+                <td th:text="*{rating}"></td>
+            </tr>
+            <tr th:object="${fifth}">
+                <td th:text="*{title}"></td>
+                <td th:text="*{year}"></td>
+                <td th:text="*{rating}"></td>
+            </tr>
+        </table>
+    </body>
+</html>

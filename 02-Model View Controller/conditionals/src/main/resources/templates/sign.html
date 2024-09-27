@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign</title>
+        <link rel="stylesheet" href="stylesheets.css">
+    </head>
+
+    <body>
+        <div>
+            <p th:text="'Speed: ' + ${speed}"></p>
+            <p th:if="${speed > 60}"><img src="images\slow-down.png" alt="Slow down" width="200" height="200"></p>
+            <p th:if="${speed < 60}"><img src="images\speed-limit.png" alt="Speed limit" width="200" height="200"></p>
+            <img th:src="${speed > 60} ? 'images/slow-down.png' : 'images/speed-limit.png'" width="200" height="200" alt="Speed Indicator"/>
+        </div>
+
+        <div th:switch="${painting}">
+            <div>
+                <h1>Mona Lisa</h1>
+                <p th:case="'mona-lisa'"><img src="images\mona-lisa.jpeg" width="300" height="300"></p>
+            </div>
+            
+            <div>
+                <h1>Starry Night</h1>
+                <p th:case="'starry-night'"><img src="images\starry-night.jpeg" width="300" height="300"></p>
+            </div>
+        </div>
+    </body>
+</html>
