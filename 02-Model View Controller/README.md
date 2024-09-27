@@ -91,6 +91,17 @@ Formun gönderileceği URL’yi tanımlamak için kullanılır. Genellikle, form
     <button type="submit">Gönder</button>
 </form>
 ```
+### 11. `th:value`
+Bir HTML elementinin value (değer) özelliğine sunucu tarafındaki bir değişkenin değerini atamak için kullanılır.
+```html
+<input type="text" th:value="${user.name}" />
+```
+
+### 12. `th:errors`
+Bir form elemanında oluşan validasyon hatalarını göstermek için kullanılır. 
+```html
+<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Hata: </div>
+```
 
 # Controller'da Model Kullanımı
 
