@@ -1,7 +1,6 @@
 package com.batuhan.movies;
 
 public class Movies {
-    
     private String title;
     private String year;
     private double rating;

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GradeController {
-    
     List<Grade> studentGrades = new ArrayList<>();
 
     @GetMapping("/grades")
@@ -30,13 +29,11 @@ public class GradeController {
     @PostMapping("/handleSubmit")
     public String submitForm(Grade grade) {
         int index = getGradeIndex(grade.getId());
-
         if(index == Constants.NOT_FOUND) {
             studentGrades.add(grade);
         } else {
             studentGrades.set(index, grade);
         }
-
         return "redirect:/grades";
     }
 

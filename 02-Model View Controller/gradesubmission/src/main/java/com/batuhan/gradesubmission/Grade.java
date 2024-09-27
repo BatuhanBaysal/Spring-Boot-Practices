@@ -3,7 +3,6 @@ package com.batuhan.gradesubmission;
 import java.util.UUID;
 
 public class Grade {
-    
     private String name;
     private String subject;
     private String score;
