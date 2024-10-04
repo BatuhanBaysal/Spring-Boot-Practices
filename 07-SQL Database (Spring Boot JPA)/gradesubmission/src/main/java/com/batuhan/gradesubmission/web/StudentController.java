@@ -3,6 +3,7 @@ package com.batuhan.gradesubmission.web;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.batuhan.gradesubmission.entity.Course;
 import com.batuhan.gradesubmission.entity.Student;
 import com.batuhan.gradesubmission.service.StudentService;
 
@@ -10,6 +11,8 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,5 +46,10 @@ public class StudentController {
     @GetMapping("/all")
     public ResponseEntity<List<Student>> getStudents() {
         return new ResponseEntity<>(studentService.getStudents(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}/courses")
+    public ResponseEntity<Set<Course>> getEnrolledCourses(@PathVariable Long id) {
+        return new ResponseEntity<>(studentService.getEnrolledCourses(id), HttpStatus.OK);
     }
 }

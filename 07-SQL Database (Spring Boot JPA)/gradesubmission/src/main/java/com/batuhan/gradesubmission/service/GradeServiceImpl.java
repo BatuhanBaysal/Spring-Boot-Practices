@@ -9,6 +9,7 @@ import com.batuhan.gradesubmission.entity.Course;
 import com.batuhan.gradesubmission.entity.Grade;
 import com.batuhan.gradesubmission.entity.Student;
 import com.batuhan.gradesubmission.exception.GradeNotFoundException;
+import com.batuhan.gradesubmission.exception.StudentNotEnrolledException;
 import com.batuhan.gradesubmission.repository.CourseRepository;
 import com.batuhan.gradesubmission.repository.GradeRepository;
 import com.batuhan.gradesubmission.repository.StudentRepository;
@@ -32,6 +33,7 @@ public class GradeServiceImpl implements GradeService {
     public Grade saveGrade(Grade grade, Long studentId, Long courseId) {
         Student student = StudentServiceImpl.unwrapStudent(studentRepository.findById(studentId), studentId);
         Course course = CourseServiceImpl.unwrapCourse(courseRepository.findById(courseId), courseId);
+        if (!student.getCourses().contains(course)) throw new StudentNotEnrolledException(studentId, courseId);
         grade.setStudent(student);
         grade.setCourse(course);
         return gradeRepository.save(grade);

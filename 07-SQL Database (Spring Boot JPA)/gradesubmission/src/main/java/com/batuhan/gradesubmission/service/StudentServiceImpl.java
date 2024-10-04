@@ -2,9 +2,11 @@ package com.batuhan.gradesubmission.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import com.batuhan.gradesubmission.entity.Course;
 import com.batuhan.gradesubmission.entity.Student;
 import com.batuhan.gradesubmission.exception.StudentNotFoundException;
 import com.batuhan.gradesubmission.repository.StudentRepository;
@@ -35,6 +37,12 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> getStudents() {
         return (List<Student>)studentRepository.findAll();
+    }
+
+    @Override
+    public Set<Course> getEnrolledCourses(Long id) {
+        Student student = getStudent(id);
+        return student.getCourses();
     }
 
     static Student unwrapStudent(Optional<Student> entity, Long id) {
